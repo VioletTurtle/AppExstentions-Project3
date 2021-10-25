@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5ab969cb8f6814ab3818302aab8595, type: 3}
+  m_Name: Inventory_Player
+  m_EditorClassIdentifier: 
+  onInventoryItemsUpdated: {fileID: 11400000, guid: aacd433ac90e751458769b61c5ec7929, type: 2}
+  testItemSlot:
+    item: {fileID: 11400000, guid: 70e089f76827d234a91eb90f0b045a9a, type: 2}
+    quantity: 750

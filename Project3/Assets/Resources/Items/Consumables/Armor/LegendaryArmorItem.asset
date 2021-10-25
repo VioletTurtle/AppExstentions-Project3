@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9992af27fd50b4abfb833adb94d306, type: 3}
+  m_Name: LegendaryArmorItem
+  m_EditorClassIdentifier: 
+  name: Armor
+  icon: {fileID: 21300000, guid: 2792eaac4c3ce2a4a9f1942f80e3d15d, type: 3}
+  rarity: {fileID: 11400000, guid: 62d40e7696bac6441960c1f1ff26775b, type: 2}
+  sellPrice: 0
+  maxStack: 1000
+  useText: Adds + 0.5 Armor
+  armorAmount: 0.5

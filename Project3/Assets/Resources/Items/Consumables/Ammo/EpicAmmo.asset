@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe715f673cd7c024a894fabc947fd297, type: 3}
+  m_Name: EpicAmmo
+  m_EditorClassIdentifier: 
+  name: Bullet
+  icon: {fileID: 21300000, guid: b106ac71369ff4d4b82a81dc78ab725e, type: 3}
+  rarity: {fileID: 11400000, guid: 303da520893b523419fd6575a76286d5, type: 2}
+  sellPrice: 0
+  maxStack: 1000
+  useText: pew pew
+  dmgAmount: 20
+  speed: 10
+  ammunitionPrefab: {fileID: 9016957938749040728, guid: 6f8a1c0637161e54295ddc734551276e, type: 3}
