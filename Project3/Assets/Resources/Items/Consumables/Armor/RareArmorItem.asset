@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RareArmorItem
   m_EditorClassIdentifier: 
   name: Armor
-  icon: {fileID: -4282871242880429947, guid: eeac123894a68534590c3197728fced1, type: 3}
+  icon: {fileID: 21300000, guid: 41c6269ae4365074082bf64178013ca7, type: 3}
   rarity: {fileID: 11400000, guid: 72187d1c86b97db40960a4da86ceb9b4, type: 2}
   sellPrice: 0
   maxStack: 1000

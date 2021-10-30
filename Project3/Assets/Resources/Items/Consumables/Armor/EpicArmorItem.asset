@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpicArmorItem
   m_EditorClassIdentifier: 
   name: Armor
-  icon: {fileID: -720518388376315696, guid: 393021b790fe7bd4484e9f84c76ad03e, type: 3}
+  icon: {fileID: 21300000, guid: 61f73e6ef0449c44585a52f396726187, type: 3}
   rarity: {fileID: 11400000, guid: 303da520893b523419fd6575a76286d5, type: 2}
   sellPrice: 0
   maxStack: 1000

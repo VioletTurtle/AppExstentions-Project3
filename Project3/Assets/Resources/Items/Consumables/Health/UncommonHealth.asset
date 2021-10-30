@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UncommonHealth
   m_EditorClassIdentifier: 
   name: First Aid Kit
-  icon: {fileID: 6935380798999507776, guid: 006f7f82ca50d224a993a4ca8304ad81, type: 3}
+  icon: {fileID: 21300000, guid: 7223496736a627e46a7be52f251997a9, type: 3}
   rarity: {fileID: 11400000, guid: 420382da0cf051e4f9aa4c119d873f14, type: 2}
   sellPrice: 0
   maxStack: 1000

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UnCommonAmmo
   m_EditorClassIdentifier: 
   name: Bullet
-  icon: {fileID: 5442340083589169892, guid: 006f7f82ca50d224a993a4ca8304ad81, type: 3}
+  icon: {fileID: 21300000, guid: 434993171fa91504c8c0197f21477c3d, type: 3}
   rarity: {fileID: 11400000, guid: 420382da0cf051e4f9aa4c119d873f14, type: 2}
   sellPrice: 0
   maxStack: 1000
