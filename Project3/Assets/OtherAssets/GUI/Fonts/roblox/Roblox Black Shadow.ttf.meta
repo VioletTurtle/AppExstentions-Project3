@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 36a4b4b3b2e78004d9373d262784ae89
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Roblox Black Shadow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 94de985962b78834db332c252f7429bf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
