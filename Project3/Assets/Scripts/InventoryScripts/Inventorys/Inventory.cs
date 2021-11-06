@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Inventory : MonoBehaviour, IItemContainer
+public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackReceiver
 {
     [SerializeField] private int size = 12;
+    public ItemDatabase database;
     private List<ItemSlot> itemSlotsList = new List<ItemSlot>();
     private ItemSlot[] itemSlots = new ItemSlot[0];
     [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
@@ -12,13 +13,10 @@ public class Inventory : MonoBehaviour, IItemContainer
     private void Start()
     {
         itemSlots = new ItemSlot[size];
-        itemSlotsList = GlobalControl.Instance.inventoryList;
-        if(itemSlotsList!=null)
+        //itemSlotsList = SaveSystem.Instance.inventoryList;
+        for (int i = 0; i < size; i++)
         {
-            for (int i = 0; i < size; i++)
-            {
-                itemSlotsList.Add(new ItemSlot());
-            }
+            itemSlotsList.Add(new ItemSlot());
         }
     }
 
@@ -37,7 +35,7 @@ public class Inventory : MonoBehaviour, IItemContainer
                     if (itemSlot.quantity <= slotRemainingSpace)
                     {
                         itemSlots[i].quantity += itemSlot.quantity;
-                        itemSlotsList[i]= new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                        itemSlotsList[i]= new ItemSlot(itemSlots[i].item, itemSlots[i].quantity, database.GetID[itemSlots[i].item]);
 
                         itemSlot.quantity = 0;
 
@@ -48,7 +46,7 @@ public class Inventory : MonoBehaviour, IItemContainer
                     else if (slotRemainingSpace > 0)
                     {
                         itemSlots[i].quantity += slotRemainingSpace;
-                        itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                        itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity, database.GetID[itemSlots[i].item]);
 
                         itemSlot.quantity -= slotRemainingSpace;
                     }
@@ -56,14 +54,14 @@ public class Inventory : MonoBehaviour, IItemContainer
             }
         }
 
-        for (int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlotsList.Count; i++)
         {
             if (itemSlots[i].item == null)
             {
                 if (itemSlot.quantity <= itemSlot.item.MaxStack)
                 {
                     itemSlots[i] = itemSlot;
-                    itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                    itemSlotsList[i] = new ItemSlot(itemSlot.item, itemSlot.quantity, database.GetID[itemSlot.item]);
 
                     itemSlot.quantity = 0;
 
@@ -73,8 +71,8 @@ public class Inventory : MonoBehaviour, IItemContainer
                 }
                 else
                 {
-                    itemSlots[i] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
-                    itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                    itemSlots[i] = itemSlot;
+                    itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity, database.GetID[itemSlots[i].item]);
 
                     itemSlot.quantity -= itemSlot.item.MaxStack;
                 }
@@ -95,7 +93,7 @@ public class Inventory : MonoBehaviour, IItemContainer
                 if (itemSlotsList[i].item == item)
                 {
                     itemSlots[i].quantity -= 1;
-                    itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                    itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity, database.GetID[itemSlots[i].item]);
 
                     if (itemSlots[i].quantity == 0)
                     {
@@ -127,7 +125,7 @@ public class Inventory : MonoBehaviour, IItemContainer
                     else
                     {
                         itemSlots[i].quantity -= itemSlot.quantity;
-                        itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity);
+                        itemSlotsList[i] = new ItemSlot(itemSlots[i].item, itemSlots[i].quantity, database.GetID[itemSlots[i].item]);
 
                         if (itemSlotsList[i].quantity == 0)
                         {
@@ -149,7 +147,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         if (slotIndex < 0 || slotIndex > itemSlotsList.Count - 1) { return; }
 
         itemSlots[slotIndex] = new ItemSlot();
-        itemSlotsList[slotIndex] = new ItemSlot(itemSlots[slotIndex].item, itemSlots[slotIndex].quantity);
+        itemSlotsList[slotIndex] = new ItemSlot(itemSlots[slotIndex].item, itemSlots[slotIndex].quantity, database.GetID[itemSlots[slotIndex].item]);
 
         onInventoryItemsUpdated.Invoke();
     }
@@ -170,10 +168,10 @@ public class Inventory : MonoBehaviour, IItemContainer
                 if (firstSlot.quantity <= secondSlotRemainingSpace)
                 {
                     itemSlots[indexTwo].quantity += firstSlot.quantity;
-                    itemSlotsList[indexTwo] = new ItemSlot(itemSlots[indexTwo].item, itemSlots[indexTwo].quantity);
+                    itemSlotsList[indexTwo] = new ItemSlot(itemSlots[indexTwo].item, itemSlots[indexTwo].quantity, database.GetID[itemSlots[indexTwo].item]);
 
                     itemSlots[indexOne] = new ItemSlot();
-                    itemSlotsList[indexOne] = new ItemSlot(itemSlots[indexOne].item, itemSlots[indexOne].quantity);
+                    itemSlotsList[indexOne] = new ItemSlot(itemSlots[indexOne].item, itemSlots[indexOne].quantity, database.GetID[itemSlots[indexOne].item]);
 
                     onInventoryItemsUpdated.Invoke();
 
@@ -231,4 +229,20 @@ public class Inventory : MonoBehaviour, IItemContainer
     {
         SaveSystem.Instance.SaveInventory(itemSlotsList);
     }
+    public void LoadInventory()
+    {
+        itemSlotsList = SaveSystem.Instance.LoadInventory(itemSlotsList);
+    }
+
+    public void OnBeforeSerialize()
+    {}
+
+    public void OnAfterDeserialize()
+    {
+        for(int i =0; i< itemSlotsList.Count; i++)
+        {
+            itemSlots[i].item = database.GetItem[itemSlotsList[i].ID];
+            itemSlotsList[i] = itemSlots[i];
+        }
+    }  
 }

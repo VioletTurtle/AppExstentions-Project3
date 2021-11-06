@@ -16,10 +16,8 @@ public class SaveSystem : MonoBehaviour
     public string sFileName = "";
 
     public string xDirectory;
+    public ItemDatabase database;
 
-    public GameObject Player;
-
-    List<string> nodeNames = new List<string>();
 
     //Variables to Save and Load
     public List<ItemSlot> inventoryList;
@@ -41,38 +39,100 @@ public class SaveSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
         xInventory.LoadXml(File.ReadAllText(xDirectory + @"\" + iFileName));
         xSettings.LoadXml(File.ReadAllText(xDirectory + @"\" + sFileName));
     }
 
     public void SaveInventory(List<ItemSlot> list)
     {
+        inventoryList = list;
         print("received message write inventory xml");
-        if (list != null)
+        xInventory.RemoveAll();
+        XmlNode iRoot = xInventory.CreateNode(XmlNodeType.Element, "iData", "");
+        string[] nodes = {"ID", "quantity"};
+
+        if (inventoryList != null)
         {
-            inventoryList = list;
-            int count = 0;
-            XmlNode root = xInventory.FirstChild;
-            foreach (ItemSlot item in inventoryList)
+            for (int e = 0; e < inventoryList.Count; e++)
             {
-                foreach (XmlNode node in root.ChildNodes)
+                if (inventoryList[e].item != null)
                 {
-                    switch (node.Name)
+                    XmlNode iBase = xInventory.CreateNode(XmlNodeType.Element, "inventory", "");
+
+                    for (int n = 0; n < nodes.Length; n++)
                     {
-                        //case "Inventory Space " + count:
-                            //node.InnerText = item.item.ToString();
+                        XmlNode newNode = xInventory.CreateNode(XmlNodeType.Element, nodes[n], "");
+
+                        iBase.AppendChild(newNode);
                     }
-                    count++;
+
+                    foreach (XmlNode node in iBase.ChildNodes)
+                    {
+                        switch (node.Name)
+                        {
+                            case "ID":
+                                node.InnerText = inventoryList[e].ID.ToString();
+                                break;
+                            case "quantity":
+                                node.InnerText = inventoryList[e].quantity.ToString();
+                                break;
+                        }
+                        iRoot.AppendChild(iBase);
+                    }
+                    xInventory.AppendChild(iRoot);
                 }
             }
+
+            xInventory.Save(xDirectory + @"\" + "data" + iFileName);
         }
-        xInventory.Save(xDirectory + @"\" + "data" + iFileName);
 
     }
+
+    public List<ItemSlot> LoadInventory(List<ItemSlot> list)
+    {
+        print("received message load Inventory xml");
+        int id = 0;
+        int quantity = 0;
+        inventoryList = list;
+
+        ItemSlot[] items = new ItemSlot[inventoryList.Count];
+
+        for (int e = 0; e < inventoryList.Count; e++)
+        {
+            if (inventoryList[e] != null)
+            {
+                if(inventoryList[e].item != null)
+                {
+                    inventoryList[e] = new ItemSlot();
+                }
+                
+                XmlNode iData = xInventory.FirstChild;
+
+                XmlNode item = iData.ChildNodes[e];
+
+                if (item.Name == "inventory")
+                {
+                    foreach (XmlNode iNode in item.ChildNodes)
+                    {
+                        switch (iNode.Name)
+                        {
+                            case "ID":
+                                id = Convert.ToInt32(iNode.InnerText.ToString());
+                                break;
+                            case "quantity":
+                                quantity = Convert.ToInt32(iNode.InnerText.ToString());
+                                break;
+                        }
+                        items[e] = new ItemSlot(database.GetItem[id], quantity, id);
+                    }
+                }
+            }
+            inventoryList[e] = items[e];
+        }
+
+        return inventoryList;
+    }
+
 
     #region Save/Load Settings
     public void SaveSettings()

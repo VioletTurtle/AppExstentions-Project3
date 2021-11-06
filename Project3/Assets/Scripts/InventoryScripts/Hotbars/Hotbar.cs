@@ -48,5 +48,15 @@ public class Hotbar : MonoBehaviour
         {
             hotbarSlotsList[3].UseSlot(Player);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Player.GetComponent<Inventory>().SaveInventory();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Player.GetComponent<Inventory>().LoadInventory();
+        }
     }
 }
