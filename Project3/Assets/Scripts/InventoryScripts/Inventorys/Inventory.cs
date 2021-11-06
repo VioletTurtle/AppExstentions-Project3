@@ -12,9 +12,13 @@ public class Inventory : MonoBehaviour, IItemContainer
     private void Start()
     {
         itemSlots = new ItemSlot[size];
-        for(int i = 0; i < size; i++)
+        itemSlotsList = GlobalControl.Instance.inventoryList;
+        if(itemSlotsList!=null)
         {
-            itemSlotsList.Add(new ItemSlot());
+            for (int i = 0; i < size; i++)
+            {
+                itemSlotsList.Add(new ItemSlot());
+            }
         }
     }
 
@@ -221,5 +225,10 @@ public class Inventory : MonoBehaviour, IItemContainer
             if(item.quantity != 0) { total++; }
         }
         return total;
+    }
+
+    public void SaveInventory()
+    {
+        SaveSystem.Instance.SaveInventory(itemSlotsList);
     }
 }

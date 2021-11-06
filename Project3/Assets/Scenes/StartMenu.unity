@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1086,14 +1086,14 @@ RectTransform:
   m_GameObject: {fileID: 1111312107}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 910756136}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -389}
+  m_AnchoredPosition: {x: 0, y: -592}
   m_SizeDelta: {x: 2000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111312109
@@ -1133,7 +1133,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111312107}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1427191040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,38 +1902,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 579614812}
     m_Modifications:
-    - target: {fileID: 990240177046552240, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1483839295}
-    - target: {fileID: 990240177046552240, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977290073898153080, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1977290073898153080, guid: 375958a9b35720143b174942455d9921, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1729312259}
-    - target: {fileID: 1977290073898153080, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977290073898153080, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EndGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654800707511328121, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582270671706991895, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b858dd5d04049124f802f1263b7cc74b, type: 3}
     - target: {fileID: 4336888502504552372, guid: 375958a9b35720143b174942455d9921, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2018,10 +1990,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4336888502504552375, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 4336888502504552395, guid: 375958a9b35720143b174942455d9921, type: 3}
       propertyPath: m_Name
       value: ExitCanvas
@@ -2029,14 +1997,6 @@ PrefabInstance:
     - target: {fileID: 4336888502504552395, guid: 375958a9b35720143b174942455d9921, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5214521550996586270, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2f47515ae6549e74999095648e811ab8, type: 3}
-    - target: {fileID: 6714956687754087726, guid: 375958a9b35720143b174942455d9921, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 375958a9b35720143b174942455d9921, type: 3}
@@ -2047,9 +2007,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 579614812}
     m_Modifications:
+    - target: {fileID: 5740964296366350413, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
+      propertyPath: m_Color.a
+      value: 0.50980395
+      objectReference: {fileID: 0}
     - target: {fileID: 5740964296471460256, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
       propertyPath: m_Name
       value: OptionsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740964296471460256, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5740964296471460257, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
       propertyPath: m_Pivot.x
@@ -2133,6 +2101,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5740964296471460257, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124702692875368278, guid: 9d5cde3b1da2b0b44804ca9618f949af, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
