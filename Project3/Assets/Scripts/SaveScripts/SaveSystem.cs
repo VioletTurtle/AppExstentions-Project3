@@ -6,6 +6,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System.Text;
+using UnityEngine.Audio;
+
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance;
@@ -17,16 +19,21 @@ public class SaveSystem : MonoBehaviour
 
     public string xDirectory;
     public ItemDatabase database;
+    bool isFilled;
+    public AudioMixer audioMixer;
 
 
     //Variables to Save and Load
-    public List<ItemSlot> inventoryList;
+    List<ItemSlot> inventoryList;
+    public bool isNew = false;
+    public string level = "Level1";
+    public int quality;
     public float masterVolume;
-    public float backgroundMusicVolume;
+    public float musicVolume;
     public float SFXVolume;
-    public float resolutionHeight;
-    public float resolutionWidth;
-    public bool isWindowed;
+    public int resolutionHeight;
+    public int resolutionWidth;
+    public bool isFullscreen;
 
     private void Awake()
     {
@@ -55,17 +62,17 @@ public class SaveSystem : MonoBehaviour
         {
             for (int e = 0; e < inventoryList.Count; e++)
             {
+                
+                XmlNode iBase = xInventory.CreateNode(XmlNodeType.Element, "inventory", "");
+
+                for (int n = 0; n < nodes.Length; n++)
+                {
+                    XmlNode newNode = xInventory.CreateNode(XmlNodeType.Element, nodes[n], "");
+
+                    iBase.AppendChild(newNode);
+                }
                 if (inventoryList[e].item != null)
                 {
-                    XmlNode iBase = xInventory.CreateNode(XmlNodeType.Element, "inventory", "");
-
-                    for (int n = 0; n < nodes.Length; n++)
-                    {
-                        XmlNode newNode = xInventory.CreateNode(XmlNodeType.Element, nodes[n], "");
-
-                        iBase.AppendChild(newNode);
-                    }
-
                     foreach (XmlNode node in iBase.ChildNodes)
                     {
                         switch (node.Name)
@@ -79,8 +86,24 @@ public class SaveSystem : MonoBehaviour
                         }
                         iRoot.AppendChild(iBase);
                     }
-                    xInventory.AppendChild(iRoot);
                 }
+                else
+                {
+                    foreach(XmlNode node in iBase.ChildNodes)
+                    {
+                        switch (node.Name)
+                        {
+                            case "ID":
+                                node.InnerText = Convert.ToString(-1);
+                                break;
+                            case "quantity":
+                                node.InnerText = Convert.ToString(-1);
+                                break;
+                        }
+                        iRoot.AppendChild(iBase);
+                    }
+                }
+                xInventory.AppendChild(iRoot);
             }
 
             xInventory.Save(xDirectory + @"\" + "data" + iFileName);
@@ -96,6 +119,7 @@ public class SaveSystem : MonoBehaviour
         inventoryList = list;
 
         ItemSlot[] items = new ItemSlot[inventoryList.Count];
+        xInventory.Load(xDirectory + @"\" + "data" + iFileName);
 
         for (int e = 0; e < inventoryList.Count; e++)
         {
@@ -117,13 +141,23 @@ public class SaveSystem : MonoBehaviour
                         switch (iNode.Name)
                         {
                             case "ID":
-                                id = Convert.ToInt32(iNode.InnerText.ToString());
+                                if (Convert.ToInt32(iNode.InnerText) != -1)
+                                {
+                                    id = Convert.ToInt32(iNode.InnerText);
+                                    isFilled = true;
+                                }
+                                else
+                                    isFilled = false;
                                 break;
                             case "quantity":
-                                quantity = Convert.ToInt32(iNode.InnerText.ToString());
+                                if (Convert.ToInt32(iNode.InnerText) != -1)
+                                    quantity = Convert.ToInt32(iNode.InnerText);
                                 break;
                         }
-                        items[e] = new ItemSlot(database.GetItem[id], quantity, id);
+                        if (isFilled == true)
+                            items[e] = new ItemSlot(database.GetItem[id], quantity, id);
+                        else
+                            items[e] = new ItemSlot();
                     }
                 }
             }
@@ -133,32 +167,107 @@ public class SaveSystem : MonoBehaviour
         return inventoryList;
     }
 
-
     #region Save/Load Settings
     public void SaveSettings()
     {
-        print("received message write settings xml");
-
+        print("received message write Settings xml");
+        XmlNode root = xSettings.FirstChild;
+        foreach (XmlNode node in root.ChildNodes)
+        {
+            switch (node.Name)
+            {
+                case "masterV":
+                    node.InnerText = masterVolume.ToString();
+                    break;
+                case "sfxV":
+                    node.InnerText = SFXVolume.ToString();
+                    break;
+                case "musicV":
+                    node.InnerText = musicVolume.ToString();
+                    break;
+                case "resolutionH":
+                    node.InnerText = resolutionHeight.ToString();
+                    break;
+                case "resolutionW":
+                    node.InnerText = resolutionWidth.ToString();
+                    break;
+                case "quality":
+                    node.InnerText = quality.ToString();
+                    break;
+                case "windowed":
+                    node.InnerText = isFullscreen.ToString();
+                    break;
+                case "level":
+                    node.InnerText = level;
+                    break;
+            }
+        }
+        xSettings.Save(xDirectory + @"\" + "data" + sFileName);
     }
 
     public void LoadSettings()
     {
+        print("received message load Settings xml");
+        xSettings.Load(xDirectory + @"\" + "data" + sFileName);
 
+        XmlNode root = xSettings.FirstChild;
+
+        foreach (XmlNode node in root.ChildNodes)
+        {
+            switch (node.Name)
+            {
+                case "masterV":
+                    masterVolume = Convert.ToSingle(node.InnerText);
+                    audioMixer.SetFloat("MasterVolume", masterVolume);
+                    break;
+                case "sfxV":
+                    SFXVolume = Convert.ToSingle(node.InnerText);
+                    audioMixer.SetFloat("SFXVolume", SFXVolume);
+                    break;
+                case "musicV":
+                    musicVolume=Convert.ToSingle(node.InnerText);
+                    audioMixer.SetFloat("MusicVolume", musicVolume);
+                    break;
+                case "isFullscreen":
+                    isFullscreen = Convert.ToBoolean(node.InnerText);
+                    Screen.fullScreen = isFullscreen;
+                    break;
+                case "resolutionH":
+                    resolutionHeight = Convert.ToInt32(node.InnerText);
+                    break;
+                case "resolutionW":
+                    resolutionWidth = Convert.ToInt32(node.InnerText);
+                    Screen.SetResolution(resolutionWidth, resolutionHeight, isFullscreen);
+                    break;
+                case "quality":
+                    quality = Convert.ToInt32(node.InnerText);
+                    QualitySettings.SetQualityLevel(quality);
+                    break;
+                case "level":
+                    level = node.InnerText;
+                    break;
+            }
+        }
     }
 
     #endregion
 
     #region NewGame
-    void LoadNewGame()
+    public void LoadNewGame()
     {
         LoadSettings();
+        print("New Game");
+        level = "Level1";
+        isNew = true;
     }
     #endregion
 
     #region ContinueGame
-    void LoadSavedGame()
+    public void LoadSavedGame()
     {
         LoadSettings();
+        print("Saved Game");
+        isNew = false;
     }
     #endregion
 }

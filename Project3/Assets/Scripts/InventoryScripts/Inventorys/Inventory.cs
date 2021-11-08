@@ -13,11 +13,15 @@ public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackRe
     private void Start()
     {
         itemSlots = new ItemSlot[size];
-        //itemSlotsList = SaveSystem.Instance.inventoryList;
         for (int i = 0; i < size; i++)
         {
             itemSlotsList.Add(new ItemSlot());
         }
+        if (SaveSystem.Instance.isNew == true)
+        {
+            SaveInventory();
+        }
+        LoadInventory();
     }
 
     public ItemSlot GetSlotByIndex(int index) => itemSlotsList[index];
@@ -147,7 +151,7 @@ public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackRe
         if (slotIndex < 0 || slotIndex > itemSlotsList.Count - 1) { return; }
 
         itemSlots[slotIndex] = new ItemSlot();
-        itemSlotsList[slotIndex] = new ItemSlot(itemSlots[slotIndex].item, itemSlots[slotIndex].quantity, database.GetID[itemSlots[slotIndex].item]);
+        itemSlotsList[slotIndex] = new ItemSlot();
 
         onInventoryItemsUpdated.Invoke();
     }
@@ -232,6 +236,16 @@ public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackRe
     public void LoadInventory()
     {
         itemSlotsList = SaveSystem.Instance.LoadInventory(itemSlotsList);
+        for (int i = 0; i < itemSlotsList.Count; i++)
+        {
+            if(itemSlotsList[i].item == null)
+            {
+                itemSlotsList[i] = new ItemSlot();
+            }
+
+            itemSlots[i] = itemSlotsList[i];
+        }
+        onInventoryItemsUpdated.Invoke();
     }
 
     public void OnBeforeSerialize()

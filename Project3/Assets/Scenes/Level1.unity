@@ -663,9 +663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b3a2473864c7d43b46de7f20e4a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iFileName: /inventory
-  sFileName: /settings
-  xDirectory: 
+  iFileName: TInventoryData.xml
+  sFileName: TSettingsData.xml
+  xDirectory: Project3XMLData
   database: {fileID: 11400000, guid: e8634089e392cd0448596ef4a8cf13e7, type: 2}
   inventoryList: []
   masterVolume: 0
