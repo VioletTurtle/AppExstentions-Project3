@@ -1,39 +1,39 @@
 <iData>
   <inventory>
-    <ID>0</ID>
-    <quantity>800</quantity>
+    <ID>7</ID>
+    <quantity>4</quantity>
   </inventory>
   <inventory>
-    <ID>10</ID>
-    <quantity>15</quantity>
+    <ID>0</ID>
+    <quantity>1000</quantity>
+  </inventory>
+  <inventory>
+    <ID>8</ID>
+    <quantity>5</quantity>
+  </inventory>
+  <inventory>
+    <ID>6</ID>
+    <quantity>10</quantity>
+  </inventory>
+  <inventory>
+    <ID>12</ID>
+    <quantity>5</quantity>
+  </inventory>
+  <inventory>
+    <ID>2</ID>
+    <quantity>100</quantity>
   </inventory>
   <inventory>
     <ID>4</ID>
     <quantity>300</quantity>
   </inventory>
   <inventory>
-    <ID>7</ID>
-    <quantity>2</quantity>
+    <ID>10</ID>
+    <quantity>15</quantity>
   </inventory>
   <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
-  </inventory>
-  <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
-  </inventory>
-  <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
-  </inventory>
-  <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
-  </inventory>
-  <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
+    <ID>0</ID>
+    <quantity>200</quantity>
   </inventory>
   <inventory>
     <ID>-1</ID>

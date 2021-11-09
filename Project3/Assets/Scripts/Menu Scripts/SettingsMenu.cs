@@ -16,6 +16,14 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicVSlider;
     public Toggle windowedToggle;
 
+    int resH;
+    int resW;
+    float mastV;
+    float musV;
+    float sfxV;
+    int qual;
+    bool tog;
+
     public void UpdateUI()
     {
         resolutions = Screen.resolutions;
@@ -46,7 +54,26 @@ public class SettingsMenu : MonoBehaviour
 
     public void SaveSettings()
     {
+        SaveSystem.Instance.masterVolume = mastV;
+        SaveSystem.Instance.musicVolume = musV;
+        SaveSystem.Instance.SFXVolume = sfxV;
+        SaveSystem.Instance.resolutionHeight = resH;
+        SaveSystem.Instance.resolutionWidth = resW;
+        SaveSystem.Instance.quality = qual;
+        SaveSystem.Instance.isFullscreen = tog;
+
         SaveSystem.Instance.SaveSettings();
+
+        audioMixer.SetFloat("MasterVolume", SaveSystem.Instance.masterVolume);
+        audioMixer.SetFloat("SFXVolume", SaveSystem.Instance.SFXVolume);
+        audioMixer.SetFloat("MusicVolume", SaveSystem.Instance.musicVolume);
+        QualitySettings.SetQualityLevel(SaveSystem.Instance.quality);
+        Screen.fullScreen = SaveSystem.Instance.isFullscreen;
+        Screen.SetResolution(SaveSystem.Instance.resolutionWidth, SaveSystem.Instance.resolutionHeight, SaveSystem.Instance.isFullscreen);
+    }
+
+    public void RevertSettings()
+    {
         audioMixer.SetFloat("MasterVolume", SaveSystem.Instance.masterVolume);
         audioMixer.SetFloat("SFXVolume", SaveSystem.Instance.SFXVolume);
         audioMixer.SetFloat("MusicVolume", SaveSystem.Instance.musicVolume);
@@ -57,36 +84,41 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetMasterVolume(float master)
     {
-        SaveSystem.Instance.masterVolume = master;
-        //audioMixer.SetFloat("MasterVolume", master);
+        mastV = master;
+        audioMixer.SetFloat("MasterVolume", master);
     }
     public void SetSFXVolume(float sfx)
     {
-        SaveSystem.Instance.SFXVolume = sfx;
-        //audioMixer.SetFloat("SFXVolume", sfx);
+        if (sfx <= -60)
+            sfx = -80;
+
+        sfxV = sfx;
+        audioMixer.SetFloat("SFXVolume", sfx);
     }
     public void SetMusicVolume(float music)
     {
-        SaveSystem.Instance.musicVolume = music;
-        //audioMixer.SetFloat("MusicVolume", music);
+        if (music <= -60)
+            music = -80;
+        musV = music;
+        audioMixer.SetFloat("MusicVolume", music);
     }
 
     public void SetQuality(int qualityIndex)
     {
-        SaveSystem.Instance.quality = qualityIndex;
-        //QualitySettings.SetQualityLevel(qualityIndex);
+        qual = qualityIndex;
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
-        SaveSystem.Instance.isFullscreen = isFullscreen;
-        //Screen.fullScreen = isFullscreen;
+        tog = isFullscreen;
+        Screen.fullScreen = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
-        SaveSystem.Instance.resolutionHeight = resolutions[resolutionIndex].height;
-        SaveSystem.Instance.resolutionWidth = resolutions[resolutionIndex].width;
-        //Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, Screen.fullScreen);
+        resH = resolutions[resolutionIndex].height;
+        resW = resolutions[resolutionIndex].width;
+        Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, Screen.fullScreen);
     }
 }

@@ -18,11 +18,13 @@ public class MainMenu : MonoBehaviour
 
     public void LoadNewGame()
     {
+        SaveSystem.Instance.music.Play();
         SaveSystem.Instance.LoadNewGame();
         SceneManager.LoadScene(SaveSystem.Instance.level, LoadSceneMode.Single);
     }
     public void LoadSavedGame()
     {
+        SaveSystem.Instance.music.Play();
         SaveSystem.Instance.LoadSavedGame();
         SceneManager.LoadScene(SaveSystem.Instance.level, LoadSceneMode.Single);
     }

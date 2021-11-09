@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     GameObject instantiatedProjectile;
     [SerializeField] private GameObject target;
     public int bulletsFired = 0;
+    public AudioSource audioS;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
         animator.SetBool("Idling", true);
     }
 
@@ -34,10 +36,13 @@ public class PlayerController : MonoBehaviour
         if (translation != 0)
         {
             animator.SetBool("Idling", false);
+            if(!audioS.isPlaying)
+                audioS.Play();
         }
         else
         {
             animator.SetBool("Idling", true);
+            audioS.Stop();
         }
     }
 

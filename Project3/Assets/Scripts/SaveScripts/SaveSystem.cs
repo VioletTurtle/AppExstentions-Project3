@@ -21,6 +21,7 @@ public class SaveSystem : MonoBehaviour
     public ItemDatabase database;
     bool isFilled;
     public AudioMixer audioMixer;
+    public AudioSource music;
 
 
     //Variables to Save and Load
@@ -48,6 +49,7 @@ public class SaveSystem : MonoBehaviour
         }
         xInventory.LoadXml(File.ReadAllText(xDirectory + @"\" + iFileName));
         xSettings.LoadXml(File.ReadAllText(xDirectory + @"\" + sFileName));
+        music = GetComponent<AudioSource>();
     }
 
     public void SaveInventory(List<ItemSlot> list)

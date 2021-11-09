@@ -6,10 +6,12 @@ public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private ItemSlot itemSlot;
     [SerializeField] private GameObject ui;
+    public AudioSource audio;
     private int qunatity = 0;
 
     public void OnTriggerEnter(Collider other)
     {
+        audio.Play();
         var itemContainer = other.GetComponent<IItemContainer>();
 
         if (itemContainer == null) { return; }
