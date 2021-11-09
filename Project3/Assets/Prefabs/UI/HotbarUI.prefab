@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1038,26 +1038,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508396736519335532, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_text
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontSize
-      value: 38
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9600687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+      objectReference: {fileID: -7934806452743253661, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294311680
+      objectReference: {fileID: 0}
     - target: {fileID: 5516809630437960153, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_Name
       value: HotbarSlot
@@ -1199,26 +1219,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508396736519335532, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_text
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontSize
-      value: 38
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9600687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+      objectReference: {fileID: -7934806452743253661, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294311680
+      objectReference: {fileID: 0}
     - target: {fileID: 5516809630437960153, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_Name
       value: HotbarSlot
@@ -1344,26 +1384,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508396736519335532, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_text
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontSize
-      value: 38
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9600687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+      objectReference: {fileID: -7934806452743253661, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294311680
+      objectReference: {fileID: 0}
     - target: {fileID: 5516809630437960153, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_Name
       value: HotbarSlot
@@ -1505,26 +1565,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508396736519335532, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_text
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontSize
-      value: 38
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9600687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+      objectReference: {fileID: -7934806452743253661, guid: f5c20d53e0ae18049a57f774a6bb77df, type: 2}
+    - target: {fileID: 5334294213955791435, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294311680
+      objectReference: {fileID: 0}
     - target: {fileID: 5516809630437960153, guid: 88d43b88bbdc7e1499c83fbee9707143, type: 3}
       propertyPath: m_Name
       value: HotbarSlot

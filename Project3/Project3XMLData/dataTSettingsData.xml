@@ -1,10 +1,10 @@
 <sData>
-  <masterV>-11.57426</masterV>
-  <sfxV>-25.64596</sfxV>
-  <musicV>-11.50228</musicV>
-  <resolutionH>1050</resolutionH>
-  <resolutionW>1680</resolutionW>
-  <quality>5</quality>
+  <masterV>0</masterV>
+  <sfxV>-32.90965</sfxV>
+  <musicV>-34.03642</musicV>
+  <resolutionH>1080</resolutionH>
+  <resolutionW>1920</resolutionW>
+  <quality>4</quality>
   <windowed>False</windowed>
   <level>Level1</level>
 </sData>

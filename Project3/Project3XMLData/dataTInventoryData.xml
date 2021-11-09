@@ -1,19 +1,19 @@
 <iData>
   <inventory>
     <ID>0</ID>
-    <quantity>400</quantity>
+    <quantity>800</quantity>
   </inventory>
   <inventory>
     <ID>10</ID>
     <quantity>15</quantity>
   </inventory>
   <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
+    <ID>4</ID>
+    <quantity>300</quantity>
   </inventory>
   <inventory>
-    <ID>-1</ID>
-    <quantity>-1</quantity>
+    <ID>7</ID>
+    <quantity>2</quantity>
   </inventory>
   <inventory>
     <ID>-1</ID>
