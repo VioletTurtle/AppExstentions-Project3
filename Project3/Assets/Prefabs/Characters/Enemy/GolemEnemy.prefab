@@ -759,7 +759,7 @@ MonoBehaviour:
   - {fileID: 0}
   curWaypoint: 0
   health: 100
-  EHS: {fileID: 0}
+  EHS: {fileID: 5615596384651650665}
 --- !u!195 &4295518701190093616
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -769,7 +769,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4295518703108408024}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
+  m_Radius: 1.8
   m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -916,6 +916,18 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -925,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -949,7 +961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 3615414639028079072, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

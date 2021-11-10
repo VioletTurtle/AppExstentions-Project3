@@ -1065,30 +1065,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.008860431
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.008860431
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.008860431
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035854764076575696, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7ca445d8f5f2b41b67df5318f7d15f, type: 3}
 --- !u!224 &7073596841301184907 stripped
