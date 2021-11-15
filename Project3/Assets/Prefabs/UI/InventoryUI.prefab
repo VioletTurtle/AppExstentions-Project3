@@ -807,6 +807,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  onMouseEndHoverItem: {fileID: 11400000, guid: afc434922644f084e88bf60ce9247e3a, type: 2}
+  hotbar: {fileID: 0}
 --- !u!1 &2278005143857584832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,7 +2446,7 @@ PrefabInstance:
     - target: {fileID: 3625798769543925514, guid: 7a25b33e5ecf1b740a1a79a6a091d296, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5554655561356249052, guid: c881d68107e44c9489b0af83662fce9b, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3625798769543925514, guid: 7a25b33e5ecf1b740a1a79a6a091d296, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
@@ -2836,7 +2838,7 @@ PrefabInstance:
     - target: {fileID: 3625798769543925514, guid: 7a25b33e5ecf1b740a1a79a6a091d296, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5554655561356249052, guid: c881d68107e44c9489b0af83662fce9b, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3625798769543925514, guid: 7a25b33e5ecf1b740a1a79a6a091d296, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play

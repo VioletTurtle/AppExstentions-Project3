@@ -947,6 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  isInventory: 0
 --- !u!1001 &809696853394093403
 PrefabInstance:
   m_ObjectHideFlags: 0

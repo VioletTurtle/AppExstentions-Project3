@@ -6,7 +6,9 @@ public class Hotbar : MonoBehaviour
 {
     private List<HotbarSlot> hotbarSlotsList = new List<HotbarSlot>();
     private HotbarSlot[] hotbarSlots = new HotbarSlot[4];
+    private HotbarSlot slotToUse;
     [SerializeField] private GameObject Player = null;
+    public bool isInventory = false;
 
     public void Add(HotbarItem itemToAdd)
     {
@@ -23,6 +25,8 @@ public class Hotbar : MonoBehaviour
         {
             hotbarSlotsList.Add(hotbarSlots[i]);
         }
+
+        slotToUse = hotbarSlotsList[0];
     }
 
     void Update()
@@ -32,21 +36,32 @@ public class Hotbar : MonoBehaviour
         {
             hotbarSlotsList[i] = hotbarSlots[i];
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            hotbarSlotsList[0].UseSlot(Player);
+            slotToUse = hotbarSlotsList[0];
+            //hotbarSlotsList[0].UseSlot(Player);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            hotbarSlotsList[1].UseSlot(Player);
+            slotToUse = hotbarSlotsList[1];
+            //hotbarSlotsList[1].UseSlot(Player);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            hotbarSlotsList[2].UseSlot(Player);
+            slotToUse = hotbarSlotsList[2];
+            //hotbarSlotsList[2].UseSlot(Player);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            hotbarSlotsList[3].UseSlot(Player);
+            slotToUse = hotbarSlotsList[3];
+            //hotbarSlotsList[3].UseSlot(Player);
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Mouse0) && isInventory == false)
+        {
+            slotToUse.UseSlot(Player);
         }
 
         if(Input.GetKeyDown(KeyCode.Space))

@@ -6,11 +6,9 @@ public class HotbarActiveButtons : MonoBehaviour
 {
     [SerializeField] private ToggleActiveWithKeyPress TP;
     [SerializeField] private GameObject[] hotbarButtons;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
+
+    [SerializeField] private Hotbar hotbar;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +19,7 @@ public class HotbarActiveButtons : MonoBehaviour
             {
                 obj.SetActive(false);
             }
+            hotbar.isInventory = true;
         }
         else
         {
@@ -28,6 +27,9 @@ public class HotbarActiveButtons : MonoBehaviour
             {
                 obj.SetActive(true);
             }
+            
+            hotbar.isInventory = false;
+            onMouseEndHoverItem.Raise();
         }
     }
 }

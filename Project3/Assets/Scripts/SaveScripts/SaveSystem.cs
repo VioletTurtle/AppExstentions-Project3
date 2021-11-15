@@ -52,6 +52,7 @@ public class SaveSystem : MonoBehaviour
         music = GetComponent<AudioSource>();
     }
 
+    #region Save/Load Inventory
     public void SaveInventory(List<ItemSlot> list)
     {
         inventoryList = list;
@@ -168,6 +169,7 @@ public class SaveSystem : MonoBehaviour
 
         return inventoryList;
     }
+    #endregion
 
     #region Save/Load Settings
     public void SaveSettings()
@@ -272,4 +274,10 @@ public class SaveSystem : MonoBehaviour
         isNew = false;
     }
     #endregion
+
+    public void ResetLevel()
+    {
+        isNew = true;
+        LoadSettings();
+    }
 }
