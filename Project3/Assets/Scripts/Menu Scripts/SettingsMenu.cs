@@ -49,7 +49,6 @@ public class SettingsMenu : MonoBehaviour
         sfxVSlider.value = SaveSystem.Instance.SFXVolume;
         musicVSlider.value = SaveSystem.Instance.musicVolume;
         windowedToggle.isOn = SaveSystem.Instance.isFullscreen;
-
     }
 
     public void SaveSettings()

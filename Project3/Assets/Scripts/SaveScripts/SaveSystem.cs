@@ -35,6 +35,8 @@ public class SaveSystem : MonoBehaviour
     public int resolutionHeight;
     public int resolutionWidth;
     public bool isFullscreen;
+    public float armor;
+    public bool firstGame = true;
 
     private void Awake()
     {
@@ -204,6 +206,12 @@ public class SaveSystem : MonoBehaviour
                 case "level":
                     node.InnerText = level;
                     break;
+                case "armor":
+                    node.InnerText = armor.ToString();
+                    break;
+                case "first":
+                    node.InnerText = firstGame.ToString();
+                    break;
             }
         }
         xSettings.Save(xDirectory + @"\" + "data" + sFileName);
@@ -218,40 +226,61 @@ public class SaveSystem : MonoBehaviour
 
         foreach (XmlNode node in root.ChildNodes)
         {
-            switch (node.Name)
+            if (node.InnerText != "")
             {
-                case "masterV":
-                    masterVolume = Convert.ToSingle(node.InnerText);
-                    audioMixer.SetFloat("MasterVolume", masterVolume);
-                    break;
-                case "sfxV":
-                    SFXVolume = Convert.ToSingle(node.InnerText);
-                    audioMixer.SetFloat("SFXVolume", SFXVolume);
-                    break;
-                case "musicV":
-                    musicVolume=Convert.ToSingle(node.InnerText);
-                    audioMixer.SetFloat("MusicVolume", musicVolume);
-                    break;
-                case "isFullscreen":
-                    isFullscreen = Convert.ToBoolean(node.InnerText);
-                    Screen.fullScreen = isFullscreen;
-                    break;
-                case "resolutionH":
-                    resolutionHeight = Convert.ToInt32(node.InnerText);
-                    break;
-                case "resolutionW":
-                    resolutionWidth = Convert.ToInt32(node.InnerText);
-                    Screen.SetResolution(resolutionWidth, resolutionHeight, isFullscreen);
-                    break;
-                case "quality":
-                    quality = Convert.ToInt32(node.InnerText);
-                    QualitySettings.SetQualityLevel(quality);
-                    break;
-                case "level":
-                    level = node.InnerText;
-                    break;
+                switch (node.Name)
+                {
+                    case "masterV":
+                        masterVolume = Convert.ToSingle(node.InnerText);
+                        break;
+                    case "sfxV":
+                        SFXVolume = Convert.ToSingle(node.InnerText);
+                        break;
+                    case "musicV":
+                        musicVolume = Convert.ToSingle(node.InnerText);
+                        break;
+                    case "isFullscreen":
+                        isFullscreen = Convert.ToBoolean(node.InnerText);
+                        break;
+                    case "resolutionH":
+                        resolutionHeight = Convert.ToInt32(node.InnerText);
+                        break;
+                    case "resolutionW":
+                        resolutionWidth = Convert.ToInt32(node.InnerText);
+                        break;
+                    case "quality":
+                        quality = Convert.ToInt32(node.InnerText);
+                        break;
+                    case "level":
+                        level = node.InnerText;
+                        break;
+                    case "armor":
+                        armor = float.Parse(node.InnerText);
+                        break;
+                    case "first":
+                        firstGame = Convert.ToBoolean(node.InnerText);
+                        break;
+                }
+            }
+            else
+            {
+                resolutionHeight = 1080;
+                resolutionWidth = 1920;
+                quality = 3;
+                masterVolume = 0;
+                musicVolume = 0;
+                SFXVolume = 0;
+                isFullscreen = false;
+                firstGame = false;
             }
         }
+
+        audioMixer.SetFloat("MasterVolume", masterVolume);
+        audioMixer.SetFloat("SFXVolume", SFXVolume);
+        audioMixer.SetFloat("MusicVolume", musicVolume);
+        Screen.fullScreen = isFullscreen;
+        Screen.SetResolution(resolutionWidth, resolutionHeight, isFullscreen);
+        QualitySettings.SetQualityLevel(quality);
     }
 
     #endregion
@@ -274,10 +303,4 @@ public class SaveSystem : MonoBehaviour
         isNew = false;
     }
     #endregion
-
-    public void ResetLevel()
-    {
-        isNew = true;
-        LoadSettings();
-    }
 }

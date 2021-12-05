@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 434993171fa91504c8c0197f21477c3d, type: 3}
   rarity: {fileID: 11400000, guid: 420382da0cf051e4f9aa4c119d873f14, type: 2}
   sellPrice: 0
-  maxStack: 1000
+  maxStack: 2000
   useText: pew pew
   dmgAmount: 10
   speed: 20

@@ -9,7 +9,6 @@ public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackRe
     private List<ItemSlot> itemSlotsList = new List<ItemSlot>();
     private ItemSlot[] itemSlots = new ItemSlot[0];
     [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
-    public string level;
 
     private void Start()
     {
@@ -233,7 +232,6 @@ public class Inventory : MonoBehaviour, IItemContainer, ISerializationCallbackRe
     public void SaveInventory()
     {
         SaveSystem.Instance.SaveInventory(itemSlotsList);
-        SaveSystem.Instance.level = level;
     }
     public void LoadInventory()
     {

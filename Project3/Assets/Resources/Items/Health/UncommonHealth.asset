@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7223496736a627e46a7be52f251997a9, type: 3}
   rarity: {fileID: 11400000, guid: 420382da0cf051e4f9aa4c119d873f14, type: 2}
   sellPrice: 0
-  maxStack: 1000
+  maxStack: 25
   useText: Adds 15 Health
   healthAddAmount: 15

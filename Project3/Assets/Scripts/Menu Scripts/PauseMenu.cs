@@ -24,7 +24,14 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(keyCode))
         {
             objectToToggle.SetActive(!objectToToggle.activeSelf);
-            PauseGame();
+            if(objectToToggle.activeSelf == true)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
         }
     }
 
@@ -38,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         SaveSystem.Instance.music.Stop();
+        ResumeGame();
         SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
     }
 
